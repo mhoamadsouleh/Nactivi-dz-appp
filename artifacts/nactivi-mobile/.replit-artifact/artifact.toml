@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "تطبيق ناكتيفي"
+description = "تطبيق جوّال عربي لإدارة خدمات جيزي، يتيح للمستخدم إدخال رقمه، عرض الرصيد والعروض، وتنفيذ الخدمات المتاحة بأمان من واجهة واحدة."
+version = "1.0.0"
+id = "artifacts/nactivi-mobile"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 20313
+
+[services.development]
+run = "pnpm --filter @workspace/nactivi-mobile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nactivi-mobile", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/nactivi-mobile", "run", "serve" ]
+
+[services.env]
+PORT = "20313"
+BASE_PATH = "/"
